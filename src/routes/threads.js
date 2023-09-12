@@ -13,6 +13,17 @@ router.get("/", (req, res) => {
     })
 })
 
+router.get("/:id", (req, res) => {
+    const id = Number(req.params.id)
+    Thread.findOne({ postNumber: id })
+    .then((response) => {
+        res.status(200).send(response);
+    })
+    .catch((err) => {
+        res.status(404).send({status: 404, error: err});
+    })
+})
+
 router.post("/", (req, res) => {
     Thread.create(req.body)
     .then(() => {
