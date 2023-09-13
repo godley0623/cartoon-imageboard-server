@@ -24,6 +24,17 @@ router.get("/:id", (req, res) => {
     })
 })
 
+router.put("/reply/:id", (req, res) => {
+    const id = req.params.id
+    Thread.findOneAndUpdate( { postNumber: id }, { replies: req.body } )
+    .then(() => {
+        res.status(200).send('Replies were updated');
+    })
+    .catch((err) => {
+        res.status(404).send({status: 404, error: err});
+    })
+})
+
 router.post("/", (req, res) => {
     Thread.create(req.body)
     .then(() => {
