@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const threadSchema = new Schema({
     name: { type: String, required: true },
     subject: { type: String },
-    comment: { type: String, required: true },
+    comment: { type: String },
     created_at: { type: String, required: true },
     postNumber: { type: Number, required: true },
     replies: { type: Array, required: true },
