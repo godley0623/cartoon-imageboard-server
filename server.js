@@ -4,6 +4,7 @@ import cors from 'cors'
 import db from './src/db/connection.js'
 import { router as threadRouter } from './src/routes/threads.js'
 import { router as postNumberRouter } from './src/routes/postNumber.js'
+import {router as translateRouter} from './src/routes/openai.js'
 
 dotenv.config()
 const app = express()
@@ -13,6 +14,7 @@ const port = process.env.PORT || 7000
 
 app.use('/threads', threadRouter)
 app.use('/postnumber', postNumberRouter)
+app.use('/translate', translateRouter)
 
 /*----- Connect to Database -----*/
 db.on('connected', async () => {
