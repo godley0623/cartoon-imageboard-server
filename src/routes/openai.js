@@ -1,5 +1,5 @@
 import express from 'express'
-import { openai } from '../openai/openaiConfig.js'
+import { openaiConfig as openai } from '../openai/openaiConfig.js'
 
 export const router = express.Router()
 

@@ -1,8 +1,8 @@
-import OpenAI from "openai";
+import openai from "openai";
 import dotenv from 'dotenv'
 
 dotenv.config()
 
-export const openai = new OpenAI({
+export const openaiConfig = new openai({
   apiKey: process.env.OPENAI_API_KEY
 })
