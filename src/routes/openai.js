@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
     const language = req.body.language
     const text = req.body.text
     const model = req.body.model
-    const prompt = `Translate what the user says to ${language}. Do not translate if it's already in ${language}. If the user includes ">" be sure to include the ">" text as well.`
+    const prompt = `Translate what the user says to ${language}. Do not translate if it's already in ${language}. Include all ">" that's in the user's message.`
 
     try {
         const chatCompletion = await openai.chat.completions.create({
