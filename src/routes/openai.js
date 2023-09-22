@@ -6,11 +6,12 @@ export const router = express.Router()
 router.post('/', async (req, res) => {
     const language = req.body.language
     const text = req.body.text
+    const model = req.body.model
     const prompt = `Translate what the user says to ${language}. Do not translate if it's already in ${language}. If the user includes ">" be sure to include the ">" text as well.`
 
     try {
         const chatCompletion = await openai.chat.completions.create({
-            model: "gpt-4",
+            model: model,
             temperature: 0,
             max_tokens: 256,
             messages: [ { "role": "system", "content": prompt }, {"role": "user", "content": text}],
