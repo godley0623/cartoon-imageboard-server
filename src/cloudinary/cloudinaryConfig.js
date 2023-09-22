@@ -1,6 +1,5 @@
 import dotenv from 'dotenv'
 import cloudinary from 'cloudinary'
-import { response } from 'express';
 
 dotenv.config()
 

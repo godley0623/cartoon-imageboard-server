@@ -3,10 +3,10 @@ import { openaiConfig as openai } from '../openai/openaiConfig.js'
 
 export const router = express.Router()
 
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
     const language = req.body.language
     const text = req.body.text
-    const prompt = `Translate the given text to ${language}. If the given text is already in ${language}, then just repeat the entire given text. If the given text includes special characters like ">" be sure to include them in the translated response.`
+    const prompt = `Translate what the user says to ${language}. If the user includes ">>" be sure to include the ">>" text as well.`
 
     try {
         const chatCompletion = await openai.chat.completions.create({
@@ -19,7 +19,8 @@ router.get('/', async (req, res) => {
         const completion = chatCompletion.choices[0].message.content
         console.log(chatCompletion.choices[0].message)
         res.status(200).send({message: completion})
-    } catch {
+    } catch(error) {
+        console.log(error)
         res.status(200).send({message: "Failed to translate text"})
     }
 })
