@@ -18,8 +18,8 @@ router.get('/', async (req, res) => {
 
         const completion = chatCompletion.choices[0].message.content
         console.log(chatCompletion.choices[0].message)
-        res.status(200).send(completion)
+        res.status(200).send({message: completion})
     } catch {
-        res.status(200).send("Failed to translate text")
+        res.status(200).send({message: "Failed to translate text"})
     }
 })
