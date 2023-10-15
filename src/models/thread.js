@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema
 
 const threadSchema = new Schema({
+    owner: {type: String, required: true},
     name: { type: String, required: true },
     subject: { type: String },
     comment: { type: String },

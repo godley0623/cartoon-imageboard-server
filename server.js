@@ -4,7 +4,7 @@ import cors from 'cors'
 import db from './src/db/connection.js'
 import { router as threadRouter } from './src/routes/threads.js'
 import { router as postNumberRouter } from './src/routes/postNumber.js'
-import {router as translateRouter} from './src/routes/openai.js'
+import { router as translateRouter } from './src/routes/openai.js'
 
 dotenv.config()
 const app = express()
